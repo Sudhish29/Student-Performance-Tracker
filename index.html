@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Performance Tracker — Semesters</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase compat SDKs (works with simple HTML) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>📚 Student Performance Tracker — Semester Mode</h1>
+    <p class="subtitle">Multiple subjects · Semester-wise records · Persistent (Firestore)</p>
+  </header>
+
+  <main class="main">
+    <section class="card form-card">
+      <h2>Add / Update Semester Record</h2>
+
+      <div class="row">
+        <input type="text" id="studentName" placeholder="Student full name (e.g. Shivam Agrawal)">
+        <select id="semesterSelect">
+          <option value="Semester 1">Semester 1</option>
+          <option value="Semester 2">Semester 2</option>
+          <option value="Semester 3">Semester 3</option>
+          <option value="Semester 4">Semester 4</option>
+          <option value="Semester 5">Semester 5</option>
+          <option value="Semester 6">Semester 6</option>
+        </select>
+      </div>
+
+      <div class="subjects-grid">
+        <div class="subject">
+          <label>Mathematics</label>
+          <input type="number" id="s_math" min="0" max="100" placeholder="0">
+        </div>
+        <div class="subject">
+          <label>Physics</label>
+          <input type="number" id="s_physics" min="0" max="100" placeholder="0">
+        </div>
+        <div class="subject">
+          <label>Chemistry</label>
+          <input type="number" id="s_chem" min="0" max="100" placeholder="0">
+        </div>
+        <div class="subject">
+          <label>Biology</label>
+          <input type="number" id="s_bio" min="0" max="100" placeholder="0">
+        </div>
+        <div class="subject">
+          <label>English</label>
+          <input type="number" id="s_eng" min="0" max="100" placeholder="0">
+        </div>
+        <div class="subject">
+          <label>Computer</label>
+          <input type="number" id="s_comp" min="0" max="100" placeholder="0">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnAddSemester">Add / Update Semester</button>
+        <button id="btnClear">Clear</button>
+      </div>
+      <p class="note">Tip: If student exists, this will create/update a semester entry inside that student. Data is saved to Firestore and will persist after refresh.</p>
+    </section>
+
+    <section class="card records-card">
+      <h2>Student Records (by student → semester)</h2>
+      <div id="recordsArea" class="records-area">
+        <!-- List injected by script -->
+      </div>
+      <div class="small-note">Each semester row has Delete (semester) and Delete Student (all data).</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Built with ❤️ • Firestore (Test mode) • Replace firebaseConfig in <code>script.js</code></small>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Custom confirm modal -->
+<div id="confirmModal" class="confirm-modal" style="display:none">
+    <div class="confirm-card">
+      <p id="confirmText"></p>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button id="confirmCancel" class="btn-mini">Cancel</button>
+        <button id="confirmOk" class="btn-mini btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

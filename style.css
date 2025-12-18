@@ -1,0 +1,152 @@
+:root{
+    --bg:#0f3460;
+    --card:#ffffff;
+    --accent:#1e90ff;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, #0f3460 0%, #27496d 100%);
+    color:#0b1222;
+    -webkit-font-smoothing:antialiased;
+  }
+  .topbar{
+    text-align:center;
+    padding:36px 16px 16px;
+    color: white;
+  }
+  .topbar h1{
+    margin:0;
+    font-size:34px;
+    letter-spacing:0.2px;
+  }
+  .subtitle{margin:6px 0 0;font-size:14px;opacity:0.95}
+  
+  .main{
+    max-width:1100px;
+    margin:28px auto;
+    padding:12px;
+  }
+  
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.35);
+  }
+  
+  .form-card h2, .records-card h2 { font-size:22px; margin:0 0 12px 0; color:#0b1222; }
+  .row{display:flex; gap:12px; margin-bottom:12px; align-items:center; flex-wrap:wrap}
+  .row input[type="text"],
+  .row select {
+    flex:1;
+    padding:16px;
+    font-size:18px;
+    border-radius:8px;
+    border:1px solid #e6e9ee;
+  }
+  
+  .subjects-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-top:8px;
+  }
+  .subject label{display:block;font-weight:600;margin-bottom:6px}
+  .subject input{
+    width:100%;
+    padding:12px;
+    font-size:18px;
+    border-radius:8px;
+    border:1px solid #e6e9ee;
+  }
+  
+  .actions{display:flex; gap:12px; margin-top:14px}
+  .actions button{
+    padding:12px 20px;
+    font-size:16px;
+    border-radius:10px;
+    border: none;
+    cursor:pointer;
+  }
+  #btnAddSemester{
+    background:var(--accent);
+    color:white;
+    flex:0 0 220px;
+  }
+  #btnClear{background:#eef2ff;color:#0b1222}
+  
+  .note{margin-top:10px;color:var(--muted);font-size:13px}
+  
+  .records-area{
+    max-height:520px;
+    overflow:auto;
+    padding-right:6px;
+  }
+  
+  /* Student card */
+  .student-block{
+    border:1px solid #e8eef7;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:14px;
+  }
+  .student-header{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin-bottom:10px;
+  }
+  .student-name{font-weight:700; font-size:18px}
+  .student-meta{color:var(--muted); font-size:13px}
+  
+  /* Table */
+  .table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:auto;
+  }
+  .table thead th{
+    background:var(--accent);
+    color:white;
+    padding:10px;
+    text-align:left;
+    font-size:14px;
+  }
+  .table td{
+    padding:10px; border-bottom:1px solid #f1f5f9;
+    font-size:15px;
+  }
+  .sem-row{display:flex; align-items:center; gap:8px; justify-content:space-between}
+  .sem-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap:6px;
+    align-items:center;
+  }
+  
+  /* Actions */
+  .btn-mini{
+    background:#fff;
+    border:1px solid #d1d5db;
+    padding:6px 8px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .btn-danger{background:#ffefef;border:1px solid #ff8a8a;color:#b00000}
+  
+  /* Responsive */
+  @media (max-width:880px){
+    .sem-grid{grid-template-columns: repeat(3, 1fr);}
+    .sem-grid > div{font-size:13px}
+  }
+  .confirm-modal{
+    position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(6,10,20,0.6); z-index:9999;
+  }
+  .confirm-card{
+    background:white; padding:16px; border-radius:10px; width:360px; box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+  
